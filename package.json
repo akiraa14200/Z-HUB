@@ -1,0 +1,22 @@
+{
+  "name": "z-hub",
+  "version": "1.0.0",
+  "description": "Z-HUB — Premium Assets & Templates",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static HTML - No build required'",
+    "lint": "echo 'No linter configured for static HTML'"
+  },
+  "keywords": [
+    "vercel",
+    "analytics",
+    "static-site"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
