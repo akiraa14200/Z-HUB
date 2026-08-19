@@ -1479,21 +1479,11 @@ function getInstagramShortcode(url){
   return null;
 }
 
-function normalizeImageUrl(url){
-  if(!url) return url;
-  url=url.trim();
-  // Google Drive: https://drive.google.com/file/d/FILE_ID/view -> direct
-  var gd = url.match(/drive\.google\.com\/.*[\/]d\/([^\/\?]+)/);
-  if(gd) return 'https://drive.google.com/uc?export=view&id='+gd[1];
-  var gd2 = url.match(/[?&]id=([^&]+)/);
-  if(url.includes('drive.google.com') && gd2) return 'https://drive.google.com/uc?export=view&id='+gd2[1];
-  return url;
-}
 function getThumbnail(item){
   if(!item) return null;
-  // 1. If manual thumbnail exists, use it (with auto Drive fix)
+  // 1. If manual thumbnail exists, use it
   if(item.thumbnail && item.thumbnail.trim() && item.thumbnail !== 'null' && item.thumbnail !== 'undefined'){
-    return normalizeImageUrl(item.thumbnail.trim());
+    return item.thumbnail.trim();
   }
   // 2. YouTube (including Shorts) - FIXED
   var ytId = getYoutubeId(item.videoUrl || item.video_url || '');
